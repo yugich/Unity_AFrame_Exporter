@@ -304,7 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b99e5af4ead0a4a9ee58e990da6565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiveShadow: 0
   generalAFrameCommands: 'light="type: directional; color: #FFF4D6; intensity: 1;
     castShadow:true;"'
   objType: a-entity
@@ -413,12 +412,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 892124960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b99e5af4ead0a4a9ee58e990da6565, type: 3}
+  m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiveShadow: 1
-  generalAFrameCommands: ' shadow = "receive: true"'
+  generalAFrameCommands: 
   objType: a-box
+  receiveShadow: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06064c4b38c1d534a9ca13bde6a29d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiveShadow: 0
   generalAFrameCommands: 
   objType: a-entity
   useMoveControls: 1
@@ -549,12 +547,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082290124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b99e5af4ead0a4a9ee58e990da6565, type: 3}
+  m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiveShadow: 1
-  generalAFrameCommands: 'radius="0.5" shadow = "receive: true"'
+  generalAFrameCommands: radius="0.5"
   objType: a-sphere
+  receiveShadow: 1
 --- !u!135 &1082290126
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -643,7 +641,7 @@ GameObject:
   - component: {fileID: 1641156997}
   - component: {fileID: 1641156996}
   - component: {fileID: 1641156995}
-  - component: {fileID: 1641156994}
+  - component: {fileID: 1641156999}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -651,21 +649,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1641156994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641156993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b99e5af4ead0a4a9ee58e990da6565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  receiveShadow: 1
-  generalAFrameCommands: ' shadow = "receive: true"'
-  objType: a-box
 --- !u!65 &1641156995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -742,6 +725,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641156999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641156993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalAFrameCommands: 
+  objType: a-box
+  receiveShadow: 1
 --- !u!1 &1684501963
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,12 +769,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1684501963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b99e5af4ead0a4a9ee58e990da6565, type: 3}
+  m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiveShadow: 1
-  generalAFrameCommands: ' shadow = "receive: true"'
+  generalAFrameCommands: 
   objType: a-box
+  receiveShadow: 1
 --- !u!65 &1684501965
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,17 +5,12 @@ using UnityEngine;
 public class AFrameObject : MonoBehaviour
 {
 
-    public bool receiveShadow = false;
-    [SerializeField] string generalAFrameCommands = "";
+    [SerializeField] protected string generalAFrameCommands = "";
     public string objType = "a-entity";
 
 
     public virtual string GetExtraAFrameCommand()
     {
-        if (receiveShadow)
-        {
-            generalAFrameCommands += " shadow = \"receive: true\"";
-        }
         return generalAFrameCommands;
     }
 

@@ -6,14 +6,14 @@
 
 <body>
    <a-scene>
-       <a-box id="Cube" position="5.23 0.71 -2.468875" rotation="0 180 0" scale="1 1 1" color="#FFFFFF"  shadow = "receive: true" shadow = "receive: true"></a-box>
+       <a-box id="Ground" position="0 0 0" rotation="0 180 0" scale="23.06841 0.1937276 21.50471" color="#00B017"  shadow = "receive: true"></a-box>
+       <a-box id="Water" position="10.78 0 0" rotation="0 180 0" scale="9.870584 1 23.38564" color="#00D9D6"  shadow = "receive: true"></a-box>
+       <a-sphere id="Sphere" position="4.68 1.05 3.53" rotation="0 180 0" scale="2 2 2" color="#FF0000" radius="0.5" shadow = "receive: true"></a-sphere>
+       <a-box id="Cube" position="5.23 0.71 -2.468875" rotation="0 180 0" scale="1 1 1" color="#FFFFFF"  shadow = "receive: true"></a-box>
        <a-entity id="Directional_Light" position="-4.67 7.26 -1.35" rotation="49.99994 462.6042 -2.656469E-05" scale="0.9999999 1 1"  light="type: directional; color: #FFF4D6; intensity: 1; castShadow:true;"></a-entity>
-       <a-box id="Ground" position="0 0 0" rotation="0 180 0" scale="23.06841 0.1937276 21.50471" color="#00B017"  shadow = "receive: true" shadow = "receive: true"></a-box>
        <a-entity id="camera_rig" position="0 2.62 -10" rotation="0 180 0">
            <a-entity id="Main_Camera" camera look-controls wasd-controls="acceleration: 100"></a-entity>
        </a-entity>
-       <a-sphere id="Sphere" position="4.68 1.05 3.53" rotation="0 180 0" scale="2 2 2" color="#FF0000" radius="0.5" shadow = "receive: true" shadow = "receive: true"></a-sphere>
-       <a-box id="Water" position="10.78 0 0" rotation="0 180 0" scale="9.870584 1 23.38564" color="#00D9D6"  shadow = "receive: true" shadow = "receive: true"></a-box>
    </a-scene>
 </body>
 
