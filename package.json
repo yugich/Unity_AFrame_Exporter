@@ -4,9 +4,8 @@
     "version": "0.0.1",
     "unity": "2020.1",
     "keywords": ["AFrame", "export"],
-    "description": "Lightweight glTF loader.",
+    "description": "AFrame exporter 3D environments into HTML",
     "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "2.0.0",
         "com.siccity.gltfutility": "https://github.com/siccity/gltfutility.git"
     }
 }
