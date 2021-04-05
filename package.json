@@ -2,7 +2,7 @@
     "name": "com.mimicland.aframeexporter",
     "displayName": "AFrame Exporter",
     "version": "0.0.1",
-    "unity": "2020.1.4f1",
+    "unity": "2020.1",
     "keywords": ["AFrame", "export"],
     "description": "Lightweight glTF loader.",
     "dependencies": {
