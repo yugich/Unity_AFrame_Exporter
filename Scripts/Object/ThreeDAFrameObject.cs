@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThreeDAFrameObject : AFrameObject
 {
     public bool receiveShadow = true;
+    public GameObject customThreeD = null;
 
     public override string GetExtraAFrameCommand()
     {

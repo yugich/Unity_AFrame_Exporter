@@ -5,7 +5,7 @@ using UnityEngine;
 public class AFrameObject : MonoBehaviour
 {
 
-    [SerializeField] protected string generalAFrameCommands = "";
+    public string generalAFrameCommands = "";
     public string objType = "a-entity";
 
 

@@ -418,6 +418,7 @@ MonoBehaviour:
   generalAFrameCommands: 
   objType: a-box
   receiveShadow: 1
+  customThreeD: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +554,7 @@ MonoBehaviour:
   generalAFrameCommands: radius="0.5"
   objType: a-sphere
   receiveShadow: 1
+  customThreeD: {fileID: 0}
 --- !u!135 &1082290126
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -740,6 +742,7 @@ MonoBehaviour:
   generalAFrameCommands: 
   objType: a-box
   receiveShadow: 1
+  customThreeD: {fileID: 0}
 --- !u!1 &1684501963
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +778,7 @@ MonoBehaviour:
   generalAFrameCommands: 
   objType: a-box
   receiveShadow: 1
+  customThreeD: {fileID: 0}
 --- !u!65 &1684501965
 BoxCollider:
   m_ObjectHideFlags: 0
