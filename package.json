@@ -6,6 +6,6 @@
     "keywords": ["AFrame", "export"],
     "description": "AFrame exporter 3D environments into HTML",
     "dependencies": {
-        "com.siccity.gltfutility": "https://github.com/siccity/gltfutility.git"
+        "com.siccity.gltfutility": "0.7.2"
     }
 }
