@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraAFrameObject : AFrameObject
 {
-    [SerializeField] bool useMoveControls = true;
-    [SerializeField] float acceleration = 100;
+    public bool useMoveControls = true;
+    public float acceleration = 100;
 
     public override string GetAllCustomScript()
     {

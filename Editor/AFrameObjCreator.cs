@@ -3,6 +3,10 @@ using UnityEditor;
 
 public class AFrameObjCreator : EditorWindow
 {
+    Vector2 scrollPos = Vector2.zero;
+    bool useMoveControls = true;
+    float movimentAccel = 100;
+
     bool primitiveReceiveShadow = true;
 
     bool customObjectReceiveShadow = true;
@@ -21,7 +25,21 @@ public class AFrameObjCreator : EditorWindow
 
     private void OnGUI()
     {
+        EditorGUILayout.BeginVertical();
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+
         GUILayout.Label("3D Object Creator", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+        GuiLine();
+        EditorGUILayout.Space();
+        GUILayout.Label("Camera", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+        useMoveControls = EditorGUILayout.Toggle("Use Move Controls:", useMoveControls);
+        movimentAccel = EditorGUILayout.FloatField("Moviment Acceleration:", movimentAccel);
+        if (GUILayout.Button("Create Camera"))
+        {
+            CreateCamera();
+        }
         EditorGUILayout.Space();
         GuiLine();
         EditorGUILayout.Space();
@@ -79,12 +97,26 @@ public class AFrameObjCreator : EditorWindow
             CreateLight();
         }
 
+        EditorGUILayout.EndScrollView();
+
+        EditorGUILayout.EndVertical();
     }
     void GuiLine(int i_height = 1)
     {
         Rect rect = EditorGUILayout.GetControlRect(false, i_height);
         rect.height = i_height;
         EditorGUI.DrawRect(rect, new Color(0.5f, 0.5f, 0.5f, 1));
+    }
+
+    private void CreateCamera()
+    {
+        GameObject camObj = new GameObject();
+        camObj.name = "AFrame_Camera";
+        camObj.AddComponent<Camera>();
+        CameraAFrameObject camAFrame = camObj.AddComponent<CameraAFrameObject>();
+        camAFrame.useMoveControls = useMoveControls;
+        camAFrame.acceleration = movimentAccel;
+
     }
 
     private ThreeDAFrameObject CreatePrimitive(PrimitiveType type)
