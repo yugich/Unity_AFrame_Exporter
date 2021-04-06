@@ -7,8 +7,8 @@
     "description": "AFrame exporter 3D environments into HTML",
     "dependencies": {},
     "samples": [{
-        "displayName": "Sample Scene",
-        "description": "Sample scene with some objects to export in AFrame",
+        "displayName": "Example Scene",
+        "description": "Example scene with some objects to export in AFrame",
         "path": "Example"
     }]
 }
