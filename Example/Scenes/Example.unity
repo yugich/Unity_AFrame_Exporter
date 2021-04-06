@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalAFrameCommands: ' shadow = "receive: true"'
+  generalAFrameCommands: ' shadow = "receive: true" shadow = "receive: true"'
   objType: a-box
   receiveShadow: 1
   customThreeD: {fileID: 0}
@@ -443,7 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalAFrameCommands: 'radius="0.5" shadow = "receive: true"'
+  generalAFrameCommands: 'radius="0.5" shadow = "receive: true" shadow = "receive:
+    true"'
   objType: a-sphere
   receiveShadow: 1
   customThreeD: {fileID: 0}
@@ -729,7 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalAFrameCommands: ' shadow = "receive: true"'
+  generalAFrameCommands: ' shadow = "receive: true" shadow = "receive: true"'
   objType: a-box
   receiveShadow: 1
   customThreeD: {fileID: 0}
@@ -765,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4470c33a745d5424c95b1b92821ebbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalAFrameCommands: ' shadow = "receive: true"'
+  generalAFrameCommands: ' shadow = "receive: true" shadow = "receive: true"'
   objType: a-box
   receiveShadow: 1
   customThreeD: {fileID: 0}
@@ -877,7 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalAFrameCommands: ' light = "type: directional; color: #FFFFFF; intensity:
     1; castShadow:True;" light = "type: directional; color: #FFFFFF; intensity: 1;
-    castShadow:True;"'
+    castShadow:True;" light = "type: directional; color: #FFFFFF; intensity: 1; castShadow:True;"'
   objType: a-entity
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
