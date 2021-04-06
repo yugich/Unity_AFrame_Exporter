@@ -5,5 +5,10 @@
     "unity": "2020.1",
     "keywords": ["AFrame", "export"],
     "description": "AFrame exporter 3D environments into HTML",
-    "dependencies": {}
+    "dependencies": {},
+    "samples": [{
+        "displayName": "Sample Scene",
+        "description": "Sample scene with some objects to export in AFrame",
+        "path": "Example"
+    }]
 }
