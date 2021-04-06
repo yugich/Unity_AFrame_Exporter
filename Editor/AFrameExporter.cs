@@ -6,6 +6,12 @@ public class AFrameExporter : EditorWindow
     bool useDataPath = true;
     static string pathToSave = "";
     string fileName = "";
+
+    private string assetsPath = "";
+    private string three3DPath = "";
+    private string imagesPath = "";
+
+
     [MenuItem("Window/A-FrameExporter")]
     static void Init()
     {
@@ -30,12 +36,53 @@ public class AFrameExporter : EditorWindow
             {
                 pathTemp = Application.dataPath + "/" + pathTemp;
             }
-            TextFileExporter.SaveTextFile(pathTemp, fileName, SceneObjectsConverter.GetAFrameCode());
+
+
+            CreateAllFolders(pathTemp);
+
+
+            TextFileExporter.SaveTextFile(pathTemp, fileName, SceneObjectsConverter.GetAFrameCode(pathTemp));
 
             ShowNotification(new GUIContent("Completed"));
         }
 
-        GUILayout.Label("Created by www.caiohv.com", EditorStyles.boldLabel);
+        GUILayout.Label("Created by mimic.land", EditorStyles.boldLabel);
     }
 
+    private void CreateAllFolders(string path)
+    {
+        //-------------Main Path---------------
+        if (!System.IO.Directory.Exists(path))
+        {
+            System.IO.Directory.CreateDirectory(path);
+        }
+
+        //-------------Assets Folder---------------
+        assetsPath = path + "/Assets";
+
+        if (!System.IO.Directory.Exists(assetsPath))
+        {
+            System.IO.Directory.CreateDirectory(assetsPath);
+        }
+
+        //-------------3D Folder---------------
+        three3DPath = assetsPath + "/3D";
+        if (!System.IO.Directory.Exists(three3DPath))
+        {
+            System.IO.Directory.CreateDirectory(three3DPath);
+        }
+
+        //------------Images Folder------------
+        imagesPath = assetsPath + "/images";
+        if (!System.IO.Directory.Exists(imagesPath))
+        {
+            System.IO.Directory.CreateDirectory(imagesPath);
+        }
+
+    }
+
+
 }
+
+
+ 

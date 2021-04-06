@@ -1,25 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 public class SceneObjectsConverter
 {
     
 
-    public static string GetAFrameCode()
+    public static string GetAFrameCode(string fullProjectPath)
     {
         string result = "";
 
         AFrameObject[] allAFramebjects = Object.FindObjectsOfType<AFrameObject>();
 
         result += "<html>\n\n" +
-            "<head>\n" +
-            "   <script src = \"https://aframe.io/releases/1.2.0/aframe.min.js\" ></script>\n" +
-            "</head>\n\n" +
-            "<body>\n" +
-            "   <a-scene>\n";
+                    "<head>\n" +
+                    "   <script src = \"https://aframe.io/releases/1.2.0/aframe.min.js\" ></script>\n" +
+                    "</head>\n\n" +
+                    "<body>\n" +
+                    "   <a-scene>\n"+
+                    "       <a-assets>\n";
+        ThreeDAFrameObject[] allCustom3D = Object.FindObjectsOfType<ThreeDAFrameObject>();
+        foreach(ThreeDAFrameObject custom3d in allCustom3D)
+        {
+            if(custom3d.GetExternalAsset().obj != null)
+            {
+                string objExtension = custom3d.GetExternalAsset().obj.name;
+                if (objExtension.Contains(".gltf") == false)
+                {
+                    objExtension += ".gltf";
+                }
 
-        foreach(AFrameObject aframeObj in allAFramebjects)
+                result += string.Format("           <a-asset-item id=\"{0}\" src=\"/Assets/3D/{1}\"></a-asset-item>\n", custom3d.GetExternalAsset().obj.name.Replace(".gltf", ""),
+                                                                                                                    objExtension);
+
+                string prefabPath = AssetDatabase.GetAssetPath(custom3d.GetExternalAsset().obj);
+                string destinationCopy = fullProjectPath + "/Assets/3D/" + objExtension;
+                try
+                {
+                    FileUtil.CopyFileOrDirectory(prefabPath, destinationCopy);
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError(ex.Message);
+                }
+            }
+        }
+
+        result += "       </a-assets>\n";
+
+        foreach (AFrameObject aframeObj in allAFramebjects)
         {
             if(aframeObj.GetAllCustomScript() == "")
             {
@@ -36,14 +65,18 @@ public class SceneObjectsConverter
                 
                 }
 
-
-                result += string.Format("       <{0} id=\"{1}\" position=\"{2} {3} {4}\" rotation=\"{5} {6} {7}\" scale=\"{8} {9} {10}\" {11} {12}></{0}>\n", aframeObj.objType,
-                                                                                             aframeObj.gameObject.name.Replace(' ','_'),
+                
+                result += string.Format("       <{0} {1} id=\"{2}\" position=\"{3} {4} {5}\" rotation=\"{6} {7} {8}\" scale=\"{9} {10} {11}\" {12} {13}></{0}>\n", aframeObj.objType,
+                                                                                             GetExternalAsset(aframeObj),
+                                                                                             "id_"+ aframeObj.gameObject.name.Replace(' ', '_'),
                                                                                              (aframeObj.transform.position.x * -1).ToString().Replace(",", "."), aframeObj.transform.position.y.ToString().Replace(",", "."), aframeObj.transform.position.z.ToString().Replace(",", "."),
-                                                                                             aframeObj.transform.eulerAngles.x.ToString().Replace(",", "."), (aframeObj.transform.eulerAngles.y + 180).ToString().Replace(",", "."), aframeObj.transform.eulerAngles.z.ToString().Replace(",", "."),
+                                                                                             aframeObj.transform.eulerAngles.x.ToString().Replace(",", "."), (aframeObj.transform.eulerAngles.y +(GetExternalAsset(aframeObj) == "" ? 180 : 0)).ToString().Replace(",", "."), aframeObj.transform.eulerAngles.z.ToString().Replace(",", "."),
                                                                                              (aframeObj.transform.lossyScale.x).ToString().Replace(",", "."), (aframeObj.transform.lossyScale.y).ToString().Replace(",", "."), (aframeObj.transform.lossyScale.z).ToString().Replace(",", "."),
                                                                                              colorText,
                                                                                              aframeObj.GetExtraAFrameCommand());
+                
+                
+                
             }
             else
             {
@@ -61,6 +94,20 @@ public class SceneObjectsConverter
         return result;
     }
 
+    private static string GetExternalAsset(AFrameObject aframeObj)
+    {
+        if(aframeObj.GetExternalAsset() == null || aframeObj.GetExternalAsset().obj == null)
+        {
+            return "";
+        }
 
+        string result = "";
+        if(aframeObj.GetExternalAsset().type == AFrameObject.ExternalObject.TYPE.ThreeD)
+        {
+            result += string.Format("gltf-model=\"#{0}\"", aframeObj.GetExternalAsset().obj.name.Replace(".gltf", ""));
+        }
+
+        return result;
+    }
 
 }

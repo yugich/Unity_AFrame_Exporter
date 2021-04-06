@@ -17,4 +17,8 @@ public class ThreeDAFrameObject : AFrameObject
         return base.GetExtraAFrameCommand();
     }
 
+    public override ExternalObject GetExternalAsset()
+    {
+        return new ExternalObject(ExternalObject.TYPE.ThreeD,customThreeD);
+    }
 }

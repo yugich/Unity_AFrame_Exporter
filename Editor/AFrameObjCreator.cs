@@ -3,20 +3,12 @@ using UnityEditor;
 
 public class AFrameObjCreator : EditorWindow
 {
-    public enum LIGHT_TYPE
-    {
-        AMBIENT,
-        DIRECTIONAL,
-        HEMISPHERE,
-        POINT,
-        SPOT
-    }
     bool primitiveReceiveShadow = true;
 
     bool customObjectReceiveShadow = true;
     GameObject customThreeD = null;
 
-    public LIGHT_TYPE lightType = LIGHT_TYPE.DIRECTIONAL;
+    public LightAFrameObject.LIGHT_TYPE lightType = LightAFrameObject.LIGHT_TYPE.DIRECTIONAL;
     Color lightColor = Color.white;
     float lightIntensity = 1f;
     bool lightCastShadow = true;
@@ -78,12 +70,13 @@ public class AFrameObjCreator : EditorWindow
 
         GUILayout.Label("Light", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        lightType = (LIGHT_TYPE)EditorGUILayout.EnumPopup("Light Type:", lightType);
+        lightType = (LightAFrameObject.LIGHT_TYPE)EditorGUILayout.EnumPopup("Light Type:", lightType);
         lightColor = EditorGUILayout.ColorField("Light Color", lightColor);
         lightIntensity = EditorGUILayout.FloatField("Intensity:", lightIntensity);
         lightCastShadow = EditorGUILayout.Toggle("Cast Shadow", lightCastShadow);
         if (GUILayout.Button("Create Light"))
         {
+            CreateLight();
         }
 
     }
@@ -110,6 +103,37 @@ public class AFrameObjCreator : EditorWindow
         ThreeDAFrameObject aframe = newObj.AddComponent<ThreeDAFrameObject>();
         aframe.objType = "a-entity";
         aframe.customThreeD = obj;
+    }
+
+    private void CreateLight()
+    {
+
+        GameObject lightObj = new GameObject();
+        Light light = lightObj.AddComponent<Light>();
+        light.color = lightColor;
+        if (lightType == LightAFrameObject.LIGHT_TYPE.DIRECTIONAL)
+            light.type = LightType.Directional;
+        else if (lightType == LightAFrameObject.LIGHT_TYPE.AMBIENT)
+            light.type = LightType.Area;
+        else if (lightType == LightAFrameObject.LIGHT_TYPE.HEMISPHERE)
+            light.type = LightType.Rectangle;
+        else if (lightType == LightAFrameObject.LIGHT_TYPE.POINT)
+            light.type = LightType.Point;
+        else if (lightType == LightAFrameObject.LIGHT_TYPE.SPOT)
+            light.type = LightType.Spot;
+
+        light.intensity = lightIntensity;
+
+        if(lightCastShadow == true)
+            light.lightShadowCasterMode = LightShadowCasterMode.Everything;
+
+        LightAFrameObject aLight = lightObj.AddComponent<LightAFrameObject>();
+        aLight.type = lightType;
+        aLight.color = lightColor;
+        aLight.intensity = lightIntensity;
+        aLight.castShadow = lightCastShadow;
+
+
     }
 
 }
