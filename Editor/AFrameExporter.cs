@@ -5,7 +5,7 @@ public class AFrameExporter : EditorWindow
 {
     bool useDataPath = true;
     static string pathToSave = "";
-    string fileName = "";
+    string fileName = "index";
 
     private string assetsPath = "";
     private string three3DPath = "";
