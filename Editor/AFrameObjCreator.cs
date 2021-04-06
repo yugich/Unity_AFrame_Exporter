@@ -16,7 +16,7 @@ public class AFrameObjCreator : EditorWindow
     Color lightColor = Color.white;
     float lightIntensity = 1f;
     bool lightCastShadow = true;
-    [MenuItem("GameObject/A-Frame Obj Creator")]
+    [MenuItem("GameObject/A-Frame Obj Creator",false,-100)]
     static void Init()
     {
         AFrameObjCreator window = (AFrameObjCreator)EditorWindow.GetWindow(typeof(AFrameObjCreator));
