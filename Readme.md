@@ -1,6 +1,10 @@
 ## Under Development
 
 ### Creating new objects into scene
+Remenber: To export the project we recomend create at least
+- AFrame Camera 
+- Directional Light
+
 ![alt text](https://github.com/yugich/Unity_AFrame_Exporter/blob/master/Documentation/Images/createNewObject.png)
 
 ### Exporting scene to AFrame
