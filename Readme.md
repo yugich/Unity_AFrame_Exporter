@@ -21,7 +21,7 @@ GLTFUtility - https://github.com/Siccity/GLTFUtility
 - [x] Export Lights
 - [x] Export Camera with simple player moviment
 - [x] Export custom GLTF
-- [] Export Billboard 2D Images
-- [] Export UI
-- [] Export Simple JS Code translated from C#
-- [] Under Planing (What you need)
+- [ ] Export Billboard 2D Images
+- [ ] Export UI
+- [ ] Export Simple JS Code translated from C#
+- [ ] Under Planing (What you need)
