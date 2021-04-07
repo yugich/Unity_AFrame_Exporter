@@ -15,3 +15,13 @@ GLTFUtility - https://github.com/Siccity/GLTFUtility
 ### Exporting GLTF from blender
 - Delete all parents and unecessary objects like: Camera, Lights, etc.
 - Export gltf just the object without parents
+
+### TO DO
+- [x] Export primitives with world positions
+- [x] Export Lights
+- [x] Export Camera with simple player moviment
+- [x] Export custom GLTF
+- [] Export Billboard 2D Images
+- [] Export UI
+- [] Export Simple JS Code translated from C#
+- [] Under Planing (What you need)
