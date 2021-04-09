@@ -20,12 +20,18 @@ public class LightAFrameObject : AFrameObject
     public bool castShadow = true;
     public override string GetExtraAFrameCommand()
     {
+        string newCommand = "";
+
         if (castShadow)
         {
-            generalAFrameCommands += string.Format(" light = \"type: {0}; color: #{1}; intensity: {2}; castShadow:{3};\"", type.ToString().ToLower(), //0
+            newCommand = string.Format(" light = \"type: {0}; color: #{1}; intensity: {2}; castShadow:{3};\"", type.ToString().ToLower(), //0
                                                                                                                             ColorUtility.ToHtmlStringRGB(color), //1
                                                                                                                             intensity, //2
                                                                                                                             castShadow);//3
+        }
+        if (generalAFrameCommands.Contains(newCommand) == false)
+        {
+            generalAFrameCommands += newCommand;
         }
 
         return base.GetExtraAFrameCommand();

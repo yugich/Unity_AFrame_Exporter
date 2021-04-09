@@ -9,10 +9,15 @@ public class ThreeDAFrameObject : AFrameObject
 
     public override string GetExtraAFrameCommand()
     {
+        string newCommand = "";
+
         if (receiveShadow)
         {
-            generalAFrameCommands += " shadow = \"receive: true\"";
+            newCommand = " shadow = \"receive: true\"";
         }
+
+        if(generalAFrameCommands.Contains(newCommand) == false)
+            generalAFrameCommands += newCommand;
 
         return base.GetExtraAFrameCommand();
     }

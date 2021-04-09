@@ -123,7 +123,17 @@ public class AFrameObjCreator : EditorWindow
     {
         GameObject primitive = GameObject.CreatePrimitive(type);
         ThreeDAFrameObject result = primitive.AddComponent<ThreeDAFrameObject>();
-        result.objType = "a-" + type.ToString().ToLower();
+        if(type == PrimitiveType.Cube)
+        {
+            result.objType = "a-box";
+        }
+        else
+        {
+            result.objType = "a-" + type.ToString().ToLower();
+        }    
+        
+
+
         return result;
     }
 
