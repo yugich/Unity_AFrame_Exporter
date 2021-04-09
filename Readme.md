@@ -1,4 +1,8 @@
-## Under Development
+## AFrame Unity Exporter - Under Development
+
+### Import using package manager
+``` https://github.com/yugich/Unity_AFrame_Exporter.git ```
+![alt text](https://github.com/yugich/Unity_AFrame_Exporter/blob/master/Documentation/Images/importPackage.png)
 
 ### Creating new objects into scene
 Remenber: To export the project we recomend create at least
@@ -12,8 +16,6 @@ Remenber: To export the project we recomend create at least
 Warning! If you have any custom object (GLTF model) in your scene, to work the HTML you need host your project like a [Surge](https://surge.sh) platform
 
 ### Dependences to use GLTF Models
-Newtonsoft - https://github.com/jilleJr/Newtonsoft.Json-for-Unity
-
 GLTFUtility - https://github.com/Siccity/GLTFUtility
 
 ### Exporting GLTF from blender
