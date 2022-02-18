@@ -4,6 +4,9 @@
 ``` https://github.com/yugich/Unity_AFrame_Exporter.git ```
 ![alt text](https://github.com/yugich/Unity_AFrame_Exporter/blob/master/Documentation/Images/importPackage.png)
 
+#### Bonus
+If you want convert your models to gltf https://github.com/Plattar/gltf-exporter
+
 ### Creating new objects into scene
 Remenber: To export the project we recomend create at least
 - AFrame Camera 
